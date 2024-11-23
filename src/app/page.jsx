@@ -5,20 +5,21 @@ import CardQ from "./components/cardq";
 
 // دیتا سوالات
 const questionsData = [
+  
   {
-    id: 1,
+    id: 0,
     question: "نظرتان درباره خدمات ما چیست؟",
     type: "تشریحی",
     options: null,
   },
   {
-    id: 2,
+    id: 1,
     question: "کدام ویژگی از محصول ما را بیشتر می‌پسندید؟",
     type: "چند گزینه‌ای",
     options: ["کیفیت بالا", "قیمت مناسب", "پشتیبانی", "طراحی زیبا"],
   },
   {
-    id: 3,
+    id: 2,
     question: "خدمات ما را از 1 تا 5 امتیاز دهید.",
     type: "امتیازدهی",
     options: null,
@@ -61,6 +62,7 @@ export default function Home() {
           question={currentQuestion.question}
           type={currentQuestion.type}
           options={currentQuestion.options}
+          ind={currentQuestion.id}
         />
       </div>
 
