@@ -24,3 +24,16 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.dynamic-padding {
+  padding-right: calc(100vh / 6);
+  padding-left: calc(100vh / 6);
+}
+
+@media (max-width: 1710px) { 
+  .test {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
