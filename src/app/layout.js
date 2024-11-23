@@ -23,7 +23,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa-IR" dir="rtl" suppressHydrationWarning>
       <body
-        className={`h-screen w-screen  bg-black text-blue-500 xl:text-amber-300 2xl:text-purple-500 2xl:text-8xl xl:text-6xl md:text-3xl md:text-red-600 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`h-screen w-screen  dynamic-padding test
+           bg-black text-blue-500 xl:text-amber-300 2xl:text-purple-500 2xl:text-8xl xl:text-6xl md:text-3xl md:text-red-600 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider >
       <NextUIProvider>  {children} </NextUIProvider>
