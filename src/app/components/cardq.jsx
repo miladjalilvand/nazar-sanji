@@ -43,11 +43,12 @@ export default function CardQ({ question, type, options, ind }) {
           {options.map((option, index) => (
             <label key={index} className="text-white">
               <input
-     
+              
                 type="radio"
                 name={`options-${ind}`}  // هر سوال باید نام متفاوتی داشته باشد
                 className="mr-2"
                 value={option}
+                checked={answers[ind]?.value === option} 
                 onChange={() => handleOptionChange(option, ind)}  // ذخیره گزینه انتخابی
               />
               {option}
