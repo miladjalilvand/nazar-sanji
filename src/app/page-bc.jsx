@@ -26,7 +26,7 @@ const questionsData = [
   },
 ];
 
-export default function Home() {
+export default function HomeCom() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // وضعیت سوال فعلی
 
   // هندلر دکمه "بعدی"
@@ -46,7 +46,7 @@ export default function Home() {
   const currentQuestion = questionsData[currentQuestionIndex];
 
   return (
-    <div className="2xl:pt-60 xl:pt-20 overflow-auto  h-screen w-screen flex flex-col items-center bg-gradient-to-b from-foreground to-background ">
+    <div className="overflow-auto  flex flex-col items-center bg-gradient-to-b from-foreground to-background ">
       <h1 className="text-background">title</h1>
     
 
@@ -64,7 +64,7 @@ export default function Home() {
           onClick={handlePrevious}
           disabled={currentQuestionIndex === 0}
           className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50
-          2xl:text-5xl"
+          "
         >
           قبلی
         </button>)}
@@ -72,13 +72,13 @@ export default function Home() {
           // onClick={handleNext}
           // disabled={currentQuestionIndex === questionsData.length - 1}
           className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50
-          2xl:text-5xl"
+         "
         >
           تمام
         </button>) : ( <button
           onClick={handleNext}
           disabled={currentQuestionIndex === questionsData.length - 1}
-          className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50 2xl:text-5xl"
+          className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50 "
         >
           بعدی
         </button>)}
