@@ -29,6 +29,14 @@ export default function QuationBoxTemplate() {
 
     const [finish,setFinish]=useState(false);
 
+      const [startanimation, setStartAnimation] = useState(false);
+
+const startAnimation = () =>{
+    setStartAnimation(true);
+    setTimeout (()=>{
+       setFinish(true)
+    },1000); }
+
   // هندلر دکمه "بعدی"
   const handleNext = () => {
     if (currentQuestionIndex < questionsData.length - 1) {
@@ -45,10 +53,10 @@ export default function QuationBoxTemplate() {
 
   const currentQuestion = questionsData[currentQuestionIndex];
   return (
-    <motion.div
+  finish ? (<div>finish</div>):(  <motion.div
     
     initial={{ y: 0 }}
-    animate={{ y: finish ? "-100%" : 0 }}
+    animate={{ y: startanimation ? "-100%" : 0 }}
     transition={{ duration: 0.8, ease: "easeInOut" }}
     className="relative flex flex-col items-center h-screen justify-center  opacity-80">
       <motion.div
@@ -67,9 +75,9 @@ export default function QuationBoxTemplate() {
           </div>):(<div> </div>)}
          {currentQuestionIndex < questionsData.length-1 ? ( <div className="cursor-pointer" onClick={handleNext}>
             <IoArrowBackCircleOutline color="black" />
-          </div>):(<Button onClick={()=>setFinish(true)} >تمام</Button>)}
+          </div>):(<Button onClick={()=>startAnimation()} >تمام</Button>)}
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div>)
   );
 }
