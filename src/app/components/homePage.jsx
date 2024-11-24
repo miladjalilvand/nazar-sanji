@@ -36,7 +36,7 @@ const startAnimation = () =>{
           className="text-center"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 0.5, delay: 1}}
         >
           فرم نظرسنجی
         </motion.div>
@@ -44,7 +44,7 @@ const startAnimation = () =>{
           className=""
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
         >
           فروشگاه قهرمان
         </motion.div>
@@ -52,7 +52,9 @@ const startAnimation = () =>{
         {/* دکمه */}
   <motion.div>
   
-  <motion.div
+<motion.div    initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}>  <motion.div
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 1 }}
           transition={{
@@ -73,7 +75,7 @@ const startAnimation = () =>{
           >
             بزن بریم
           </Button>
-        </motion.div>
+        </motion.div></motion.div>
   </motion.div>
   
   

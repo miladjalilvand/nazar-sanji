@@ -53,7 +53,12 @@ const startAnimation = () =>{
 
   const currentQuestion = questionsData[currentQuestionIndex];
   return (
-  finish ? (<div>finish</div>):(  <motion.div
+  finish ? (<div 
+   
+  className=" h-screen flex items-center justify-center bg-lime-400">
+          مرسی که شرکت کردی
+  </div >
+  ):(  <motion.div
     
     initial={{ y: 0 }}
     animate={{ y: startanimation ? "-100%" : 0 }}
