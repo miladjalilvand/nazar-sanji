@@ -47,7 +47,7 @@ export default function HomeCom() {
 
   return (
     <div className="overflow-auto  flex flex-col items-center bg-gradient-to-b from-foreground to-background ">
-      <h1 className="text-background">title</h1>
+      <h1 className="">title</h1>
     
 
       {/* سوال فعلی */}
