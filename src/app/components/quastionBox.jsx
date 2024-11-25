@@ -143,7 +143,7 @@ export default function QuationBoxTemplate() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-2/3 flex-col bg-yellow-500 rounded-lg shadow-lg flex 
+          className=" md:w-2/3 flex-col bg-yellow-500 rounded-lg shadow-lg flex 
            justify-between p-6 overflow-auto"
         >
           <div className="flex flex-col overflow-auto">
@@ -210,7 +210,7 @@ const Type3 = ({ quastion, options }) => (
 // کامپوننت سوال نوع 2 (امتیازی)
 // کامپوننت سوال نوع 2 (امتیازی)
 const Type2 = ({ quastion, rating, setRating }) => (
-  <div className="flex flex-col py-3 text-black">
+  <div className="flex flex-col py-3 text-black overflow-hidden">
     {rating}
     <div className="pb-2">{quastion}</div>
     <div className="flex gap-2">
