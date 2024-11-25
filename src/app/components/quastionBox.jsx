@@ -3,7 +3,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@nextui-org/react";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
+import { Rating } from '@smastrom/react-rating'
 
+import '@smastrom/react-rating/style.css'
 // داده‌های سوالات
 const questionsData = [
   {
@@ -65,6 +67,9 @@ const questionsData = [
 
 // کامپوننت اصلی
 export default function QuationBoxTemplate() {
+  const [rating, setRating] = useState(0) // Initial value
+
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // وضعیت سوال فعلی
   const [finish, setFinish] = useState(false); // اتمام فرم
   const [startanimation, setStartAnimation] = useState(false); // شروع انیمیشن
@@ -76,7 +81,10 @@ export default function QuationBoxTemplate() {
       case "t1": // سوال نوع 1
         return <Type1 quastion={questionsData[currentQuestionIndex].question} />;
       case "t2": // سوال نوع 2
-        return <Type2 quastion={questionsData[currentQuestionIndex].question} />;
+        return <Type2 quastion={questionsData[currentQuestionIndex].question}
+        rating={rating}
+          setRating={setRating}
+        />;
       case "t3": // سوال نوع 3
         return (
           <Type3
@@ -200,18 +208,13 @@ const Type3 = ({ quastion, options }) => (
 );
 
 // کامپوننت سوال نوع 2 (امتیازی)
-const Type2 = ({ quastion }) => (
+// کامپوننت سوال نوع 2 (امتیازی)
+const Type2 = ({ quastion, rating, setRating }) => (
   <div className="flex flex-col py-3 text-black">
+    {rating}
     <div className="pb-2">{quastion}</div>
     <div className="flex gap-2">
-      {Array.from({ length: 5 }, (_, i) => (
-        <button
-          key={i}
-          className="h-full w-full rounded-full bg-gray-300 hover:bg-gray-400"
-        >
-          {i + 1}
-        </button>
-      ))}
+      <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
     </div>
   </div>
 );
