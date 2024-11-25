@@ -26,7 +26,7 @@ const startAnimation = () =>{
         animate={{ y: startanimation ? "-100%" : 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className={` flex flex-col h-screen justify-around   
-        p-6 `}
+        p-6 overflow-hidden `}
       >
         {/* تصویر پس‌زمینه */}
   
@@ -52,8 +52,8 @@ const startAnimation = () =>{
         {/* دکمه */}
   <motion.div>
   
-<motion.div    initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+<motion.div    initial={{ y: "300%" }}
+          animate={{y: "0%" }}
           transition={{ duration: 0.5, delay: 0.5 }}>  <motion.div
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 1 }}
