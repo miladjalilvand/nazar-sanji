@@ -68,7 +68,7 @@ export default function QuationBoxTemplate() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // وضعیت سوال فعلی
   const [finish, setFinish] = useState(false); // اتمام فرم
   const [startanimation, setStartAnimation] = useState(false); // شروع انیمیشن
-  const [startanimationMove, setStartAnimationMove] = useState(false); // شروع انیمیشن
+// شروع انیمیشن
 
   // تابع تعیین نوع سوال
   const typeQuastionSwitch = () => {
@@ -135,26 +135,28 @@ export default function QuationBoxTemplate() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-2/3 flex-col bg-white rounded-lg shadow-lg flex items-center justify-between p-6"
+          className="w-2/3 flex-col bg-yellow-500 rounded-lg shadow-lg flex 
+           justify-between p-6 overflow-auto"
         >
-          <div className="flex flex-col">
-            <span>{currentQuestionIndex}</span>
+          <div className="flex flex-col overflow-auto">
+            <span>{currentQuestionIndex+1}/{questionsData.length}</span>
             {typeQuastionSwitch()}
           </div>
-          <div className="flex flex-row w-full items-center justify-between bottom-2">
+          <div className="flex flex-row w-full justify-between
+             bottom-2 pt-2">
             {currentQuestionIndex > 0 ? ( // دکمه قبلی
-              <div className="cursor-pointer" onClick={handlePrevious}>
-                <IoArrowForwardCircleOutline color="black" />
+              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-full p-2" onClick={handlePrevious}>
+                <IoArrowForwardCircleOutline color="yellow" />
               </div>
             ) : (
               <div></div>
             )}
             {currentQuestionIndex < questionsData.length - 1 ? ( // دکمه بعدی
-              <div className="cursor-pointer" onClick={handleNext}>
-                <IoArrowBackCircleOutline color="black" />
+              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-full p-2 " onClick={handleNext}>
+                <IoArrowBackCircleOutline color="yellow" />
               </div>
             ) : (
-              <Button onClick={() => startAnimation()}>تمام</Button>
+              <Button className="animate-pulse h-fit " onClick={() => startAnimation()}>ارسال </Button>
             )}
           </div>
         </motion.div>
@@ -166,28 +168,31 @@ export default function QuationBoxTemplate() {
 // کامپوننت سوال نوع 1
 const Type1 = ({ quastion }) => (
   <div className="flex flex-col">
-    {quastion}
+    <div className="text-black pb-2">{quastion}</div>
     <textarea
-      className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none"
+      className="w-full p-2 rounded-lg border-2 border-gray-300
+       resize-none  "
       rows={5}
+      placeholder={"type . . ."}
     ></textarea>
   </div>
 );
 
 // کامپوننت سوال نوع 3 (چند گزینه‌ای)
 const Type3 = ({ quastion, options }) => (
-  <div className="flex flex-col">
-    <div>{quastion}</div>
+  <div className="flex flex-col overflow-auto text-black">
+    <div className=" pb-2">{quastion}</div>
     <div>
       {options.map((option, index) => (
-        <label key={index} className="">
+        <label key={index} className="flex flex-row px-1 text-lg">
           <input
             type="radio"
             name={`index`}
-            className="mr-2"
+            className="mr-2 m-1 "
             value={option}
+
           />
-          <div className="flex flex-col">{option}</div>
+          <div className=" text-black pr-1 pb-2">{option}</div>
         </label>
       ))}
     </div>
@@ -196,8 +201,8 @@ const Type3 = ({ quastion, options }) => (
 
 // کامپوننت سوال نوع 2 (امتیازی)
 const Type2 = ({ quastion }) => (
-  <div className="flex flex-col">
-    <div>{quastion}</div>
+  <div className="flex flex-col py-3 text-black">
+    <div className="pb-2">{quastion}</div>
     <div className="flex gap-2">
       {Array.from({ length: 5 }, (_, i) => (
         <button
