@@ -164,7 +164,9 @@ export default function QuationBoxTemplate() {
                 <IoArrowBackCircleOutline color="yellow" />
               </div>
             ) : (
-              <Button className="animate-pulse h-fit " onClick={() => startAnimation()}>ارسال </Button>
+              <Button className="animate-pulse h-fit " onClick={() => startAnimation()}>
+                <div className="animate-none">ارسال</div>
+                 </Button>
             )}
           </div>
         </motion.div>
@@ -176,7 +178,7 @@ export default function QuationBoxTemplate() {
 // کامپوننت سوال نوع 1
 const Type1 = ({ quastion }) => (
   <div className="flex flex-col">
-    <div className="text-black pb-2">{quastion}</div>
+    <div className="text-green-950 pb-2">{quastion}</div>
     <textarea
       className="w-full p-2 rounded-lg border-2 border-gray-300
        resize-none  "
@@ -189,7 +191,7 @@ const Type1 = ({ quastion }) => (
 // کامپوننت سوال نوع 3 (چند گزینه‌ای)
 const Type3 = ({ quastion, options }) => (
   <div className="flex flex-col overflow-auto text-black">
-    <div className=" pb-2">{quastion}</div>
+    <div className=" pb-2 text-green-950">{quastion}</div>
     <div>
       {options.map((option, index) => (
         <label key={index} className="flex flex-row px-1 text-lg">
@@ -212,7 +214,7 @@ const Type3 = ({ quastion, options }) => (
 const Type2 = ({ quastion, rating, setRating }) => (
   <div className="flex flex-col py-3 text-black overflow-hidden">
     {rating}
-    <div className="pb-2">{quastion}</div>
+    <div className=" text-green-950 pb-2">{quastion}</div>
     <div className="flex gap-2">
       <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
     </div>

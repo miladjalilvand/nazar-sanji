@@ -4,7 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "next-themes";
 
 const vaz = localFont({
-  src: "/fonts/Vazir-Variable.woff2",
+  src: "../app/fonts/Vazir-FD.woff2",
   display: "swap",
 
 });
