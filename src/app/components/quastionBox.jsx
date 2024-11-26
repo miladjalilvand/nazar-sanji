@@ -227,7 +227,7 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
     <textarea
     maxLength={300}
       className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none
-      text-gray-900 text-lg
+      text-gray-900 text-lg focus:outline-none focus:border-transparent
       "
       rows={5}
       placeholder={currentAnswer[index] ? currentAnswer[index].value: "جواب شما . . ."}
