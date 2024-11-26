@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button,Progress } from "@nextui-org/react";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
-import { Rating } from '@smastrom/react-rating'
+import { Rating , ThinStar  } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 // داده‌های سوالات
@@ -154,7 +154,7 @@ const setAnswersInput = (val, ind) => {
 
   return (
     finish ? ( // نمایش پیام اتمام
-      <div className="h-screen flex flex-col items-center justify-center bg-lime-400">
+      <div className="h-screen flex flex-col items-center justify-center bg-lime-500">
        <div        
           className="flex self-center text-2xl font-semibold 
           text-gray-100  bg-white bg-opacity-10 rounded-large px-3 *:py-2"
@@ -224,9 +224,11 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
     <div className="text-green-950 pb-2">{quastion}</div>
     <textarea
     maxLength={300}
-      className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none"
+      className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none
+      text-gray-900 text-lg
+      "
       rows={5}
-      placeholder={currentAnswer[index] ? currentAnswer[index].value: "type . . ."}
+      placeholder={currentAnswer[index] ? currentAnswer[index].value: "جواب شما . . ."}
       onChange={(e) => setAnswerInput(e.target.value, index)}
     ></textarea>
   </div>
@@ -255,7 +257,11 @@ const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
   </div>
 );
 
-
+const myStyles = {
+  itemShapes: ThinStar,
+  activeFillColor: '#37415c',
+  inactiveFillColor: '#fbf1a9'
+}
 // کامپوننت سوال نوع 2 (امتیازی)
 // کامپوننت سوال نوع 2 (امتیازی)
 const Type2 = ({ quastion, answers, setAnswerInput, index }) => {
@@ -267,6 +273,7 @@ const Type2 = ({ quastion, answers, setAnswerInput, index }) => {
       <div className="text-green-950 pb-2">{quastion}</div>
       <div className="flex gap-2">
         <Rating
+        itemStyles={myStyles}
           style={{ maxWidth: 250 }}
           value={currentRating} // مقدار فعلی
           onChange={(value) => {
