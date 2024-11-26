@@ -1,7 +1,7 @@
 "use client" 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@nextui-org/react";
+import { Button,Progress } from "@nextui-org/react";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 import { Rating } from '@smastrom/react-rating'
 
@@ -173,7 +173,13 @@ const setAnswersInput = (val, ind) => {
            justify-between p-6 overflow-auto"
         >
           <div className="flex flex-col overflow-auto">
-            <span>{currentQuestionIndex+1}/{questionsData.length}</span>
+            <div className="flex px-3 gap-5 md:flex-row flex-col items-center justify-around">
+<span>{currentQuestionIndex+1}/{questionsData.length}</span>
+<Progress color="default" aria-label="Loading..." value={(100/questionsData.length)*(currentQuestionIndex+1)} />
+            {/* <Progress aria-label="Loading..." color="black" value={(100/questionsData.length)*currentQuestionIndex} className="max-w-md"/> */}
+
+
+            </div>
             {typeQuastionSwitch()}
           </div>
           <div className="flex flex-row w-full justify-between
@@ -231,7 +237,7 @@ const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
             value={option}
             onChange={(e) => setAnswerInput(option, index)}
           />
-          <div className="text-black pr-1 pb-2">{option}</div>
+          <div className="text-black pr-1 pb-2 cursor-pointer">{option}</div>
         </label>
       ))}
     </div>
