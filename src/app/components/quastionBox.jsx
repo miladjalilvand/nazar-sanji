@@ -74,29 +74,55 @@ export default function QuationBoxTemplate() {
   const [finish, setFinish] = useState(false); // اتمام فرم
   const [startanimation, setStartAnimation] = useState(false); // شروع انیمیشن
 // شروع انیمیشن
+const [answers, setAnswer] = useState([]);
 
+// تابع به‌روزرسانی جواب‌ها
+const setAnswersInput = (val, ind) => {
+  // اضافه کردن یا به‌روزرسانی مقدار جدید در آرایه
+  const newAnswers = [...answers];  // ایجاد یک نسخه جدید از آرایه
+  newAnswers[ind] = { value: val, index: ind };  // بروزرسانی یا افزودن پاسخ
+  setAnswer(newAnswers);  // به‌روزرسانی وضعیت
+  console.log(newAnswers[ind].value);  // نمایش مقدار به‌روزرسانی شده
+};
   // تابع تعیین نوع سوال
   const typeQuastionSwitch = () => {
-    switch (questionsData[currentQuestionIndex].type) {
+    const question = questionsData[currentQuestionIndex];
+    switch (question.type) {
       case "t1": // سوال نوع 1
-        return <Type1 quastion={questionsData[currentQuestionIndex].question} />;
-      case "t2": // سوال نوع 2
-        return <Type2 quastion={questionsData[currentQuestionIndex].question}
-        rating={rating}
-          setRating={setRating}
-        />;
+        return (
+          <Type1
+          currentAnswer={answers}
+            quastion={question.question}
+            setAnswerInput={setAnswersInput}
+            index={currentQuestionIndex}
+          />
+        );
+        case "t2":
+          return (
+            <Type2
+              quastion={question.question}
+              answers={answers} // پاس دادن آرایه پاسخ‌ها
+              setAnswerInput={setAnswersInput}
+              index={currentQuestionIndex}
+            />
+          );
+        
       case "t3": // سوال نوع 3
         return (
           <Type3
-            options={questionsData[currentQuestionIndex].options}
-            quastion={questionsData[currentQuestionIndex].question}
+          answers={answers}
+            options={question.options}
+            quastion={question.question}
+            setAnswerInput={setAnswersInput}
+            index={currentQuestionIndex}
           />
         );
       default:
         return <div>هیچ سوالی موجود نیست</div>;
     }
   };
-
+  
+  
   // انیمیشن اتمام فرم
   const startAnimation = () => {
     setStartAnimation(true);
@@ -143,7 +169,7 @@ export default function QuationBoxTemplate() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className=" md:w-2/3 flex-col bg-yellow-500 rounded-lg shadow-lg flex 
+          className="mx-3 md:mx-0 md:w-2/3 flex-col bg-yellow-500 rounded-lg shadow-lg flex 
            justify-between p-6 overflow-auto"
         >
           <div className="flex flex-col overflow-auto">
@@ -176,47 +202,62 @@ export default function QuationBoxTemplate() {
 }
 
 // کامپوننت سوال نوع 1
-const Type1 = ({ quastion }) => (
+const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
   <div className="flex flex-col">
     <div className="text-green-950 pb-2">{quastion}</div>
     <textarea
-      className="w-full p-2 rounded-lg border-2 border-gray-300
-       resize-none  "
+    maxLength={300}
+      className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none"
       rows={5}
-      placeholder={"type . . ."}
+      placeholder={currentAnswer[index] ? currentAnswer[index].value: "type . . ."}
+      onChange={(e) => setAnswerInput(e.target.value, index)}
     ></textarea>
   </div>
 );
 
-// کامپوننت سوال نوع 3 (چند گزینه‌ای)
-const Type3 = ({ quastion, options }) => (
-  <div className="flex flex-col overflow-auto text-black">
-    <div className=" pb-2 text-green-950">{quastion}</div>
-    <div>
-      {options.map((option, index) => (
-        <label key={index} className="flex flex-row px-1 text-lg">
-          <input
-            type="radio"
-            name={`index`}
-            className="mr-2 m-1 "
-            value={option}
 
+// کامپوننت سوال نوع 3 (چند گزینه‌ای)
+const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
+  <div className="flex flex-col overflow-auto text-black">
+    <div className="pb-2 text-green-950">{quastion}</div>
+    <div>
+      {options.map((option, optIndex) => (
+        <label key={optIndex} className="flex flex-row px-1 text-lg">
+          <input
+            checked={answers[index]?.value === option} 
+            type="radio"
+            name={`question-${index}`}
+            className="mr-2 m-1"
+            value={option}
+            onChange={(e) => setAnswerInput(option, index)}
           />
-          <div className=" text-black pr-1 pb-2">{option}</div>
+          <div className="text-black pr-1 pb-2">{option}</div>
         </label>
       ))}
     </div>
   </div>
 );
 
+
 // کامپوننت سوال نوع 2 (امتیازی)
 // کامپوننت سوال نوع 2 (امتیازی)
-const Type2 = ({ quastion, rating, setRating }) => (
-  <div className="flex flex-col py-3 text-black overflow-hidden">
-    {rating}
-    <div className=" text-green-950 pb-2">{quastion}</div>
-    <div className="flex gap-2">
-      <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
+const Type2 = ({ quastion, answers, setAnswerInput, index }) => {
+  // مقدار فعلی امتیاز برای این سوال
+  const currentRating = answers[index]?.value || 0;
+
+  return (
+    <div className="flex flex-col py-3 text-black overflow-hidden">
+      <div className="text-green-950 pb-2">{quastion}</div>
+      <div className="flex gap-2">
+        <Rating
+          style={{ maxWidth: 250 }}
+          value={currentRating} // مقدار فعلی
+          onChange={(value) => {
+            setAnswerInput(value, index); // ذخیره مقدار جدید در پاسخ‌ها
+          }}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
