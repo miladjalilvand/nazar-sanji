@@ -155,15 +155,17 @@ const setAnswersInput = (val, ind) => {
   return (
     finish ? ( // نمایش پیام اتمام
       <div className="h-screen flex flex-col items-center justify-center bg-lime-500">
-       <div        
+<div className="flex flex-col w-2/3 py-6 px-3 bg-white bg-opacity-50 rounded-md">
+<div        
           className="flex self-center text-2xl font-semibold 
-          text-gray-100  bg-white bg-opacity-10 rounded-large px-3 *:py-2"
+          text-gray-100   rounded-large px-3 *:py-2"
        > مرسی که شرکت کردی</div>
 
 <div        
           className="flex self-center  text-xl font-semibold 
-          text-gray-400 text-opacity-80 bg-white bg-opacity-10 rounded-large px-3 *:py-2"
+          text-gray-400 text-opacity-80  rounded-large px-3 *:py-2"
        > در حال بازگشت . . .   </div>
+</div>
       </div>
     ) : ( // نمایش سوالات
       <motion.div
