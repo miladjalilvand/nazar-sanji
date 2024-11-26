@@ -6,6 +6,9 @@
   /* Your default theme */
   --background: white;
   --foreground: black;
+  --primary: #8174A0;    /* رنگ اصلی */
+  --secondary: #A888B5;  /* رنگ ثانویه */
+  --danger: #EFB6C8;   
 }
 
 [data-theme='dark'] {
@@ -41,15 +44,16 @@ input[type="radio"] {
   appearance: none; /* ظاهر پیش‌فرض را حذف می‌کند */
   width: 20px;
   height: 20px;
-  border: 2px solid #4a90e2;
+  border: 2px solid #ffffff;
   border-radius: 0%;
   outline: none;
+
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 input[type="radio"]:checked {
-  background-color: #4a90e2;
+  background-color: #007733;
   border-color: #ffffff;
 }
 

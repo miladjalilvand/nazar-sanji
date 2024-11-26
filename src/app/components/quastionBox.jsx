@@ -32,36 +32,36 @@ const questionsData = [
     type: "t3", // سوال چندگزینه‌ای
     options: ["بله", "خیر", "شاید"], // گزینه‌ها
   },
-  {
-    id: 4,
-    question: "چقدر با سرعت پاسخگویی ما راضی بودید؟",
-    type: "t2", // سوال امتیازی
-    options: null,
-  },
-  {
-    id: 5,
-    question: "آیا به نظرتان قیمت محصولات ما مناسب است؟",
-    type: "t3", // سوال چندگزینه‌ای
-    options: ["بله", "خیر", "نه خیلی"], // گزینه‌ها
-  },
-  {
-    id: 6,
-    question: "چه ویژگی‌ای به نظر شما می‌تواند بهبود یابد؟",
-    type: "t1", // سوال نوع 1
-    options: null, // گزینه‌ها
-  },
-  {
-    id: 7,
-    question: "آیا قصد دارید دوباره از خدمات ما استفاده کنید؟",
-    type: "t3", // سوال چندگزینه‌ای
-    options: ["بله", "خیر", "شاید"], // گزینه‌ها
-  },
-  {
-    id: 8,
-    question: "چه عواملی شما را به خرید از ما ترغیب کرد؟",
-    type: "t1", // سوال نوع 1
-    options: null, // گزینه‌ها
-  },
+  // {
+  //   id: 4,
+  //   question: "چقدر با سرعت پاسخگویی ما راضی بودید؟",
+  //   type: "t2", // سوال امتیازی
+  //   options: null,
+  // },
+  // {
+  //   id: 5,
+  //   question: "آیا به نظرتان قیمت محصولات ما مناسب است؟",
+  //   type: "t3", // سوال چندگزینه‌ای
+  //   options: ["بله", "خیر", "نه خیلی"], // گزینه‌ها
+  // },
+  // {
+  //   id: 6,
+  //   question: "چه ویژگی‌ای به نظر شما می‌تواند بهبود یابد؟",
+  //   type: "t1", // سوال نوع 1
+  //   options: null, // گزینه‌ها
+  // },
+  // {
+  //   id: 7,
+  //   question: "آیا قصد دارید دوباره از خدمات ما استفاده کنید؟",
+  //   type: "t3", // سوال چندگزینه‌ای
+  //   options: ["بله", "خیر", "شاید"], // گزینه‌ها
+  // },
+  // {
+  //   id: 8,
+  //   question: "چه عواملی شما را به خرید از ما ترغیب کرد؟",
+  //   type: "t1", // سوال نوع 1
+  //   options: null, // گزینه‌ها
+  // },
 ];
 
 
@@ -128,6 +128,9 @@ const setAnswersInput = (val, ind) => {
     setStartAnimation(true);
     setTimeout(() => {
       setFinish(true);
+     setTimeout(()=>{
+      window.location.reload();
+     },3000);
     }, 1000);
   };
 
@@ -151,8 +154,16 @@ const setAnswersInput = (val, ind) => {
 
   return (
     finish ? ( // نمایش پیام اتمام
-      <div className="h-screen flex items-center justify-center bg-lime-400">
-        مرسی که شرکت کردی
+      <div className="h-screen flex flex-col items-center justify-center bg-lime-400">
+       <div        
+          className="flex self-center text-2xl font-semibold 
+          text-gray-100  bg-white bg-opacity-10 rounded-large px-3 *:py-2"
+       > مرسی که شرکت کردی</div>
+
+<div        
+          className="flex self-center  text-xl font-semibold 
+          text-gray-400 text-opacity-80 bg-white bg-opacity-10 rounded-large px-3 *:py-2"
+       > در حال بازگشت . . .   </div>
       </div>
     ) : ( // نمایش سوالات
       <motion.div
@@ -160,7 +171,7 @@ const setAnswersInput = (val, ind) => {
         initial={{ y: 0 }}
         animate={{ y: startanimation ? "-100%" : 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
-        className=" flex flex-col items-center h-screen justify-center opacity-80
+        className=" flex flex-col items-center h-screen justify-center  opacity-80
        
         "
       >

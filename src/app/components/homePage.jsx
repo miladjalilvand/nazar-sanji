@@ -25,8 +25,8 @@ const startAnimation = () =>{
         initial={{ y: 0 }}
         animate={{ y: startanimation ? "-100%" : 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
-        className={` flex flex-col h-screen justify-around   
-        p-6 overflow-hidden `}
+        className={` flex flex-col h-screen    
+         overflow-hidden `}
       >
         {/* تصویر پس‌زمینه */}
   
@@ -34,49 +34,75 @@ const startAnimation = () =>{
         {/* عنوان */}
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1}}
+          initial={{ y: "-300%" }}
+          animate={{y: "0%" }}
+          // initial={{ opacity: 0, scale: 0 }}
+          // animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.5}}
         >
-          فرم نظرسنجی
+          <div className=" px-3 py-1 text-gray-600 rounded-b-full bg-slate-200 w-full text-lg
+          
+          shadow-md shadow-black ">
+            فرم نظرسنجی</div>
         </motion.div>
-        <motion.div
-          className=""
+      <div className="flex flex-col pt-12 h-full justify-around md:justify-between m-6">
+
+      <motion.div
+          className="flex self-center text-2xl font-semibold text-gray-500 bg-white bg-opacity-10 rounded-large px-3 *:py-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           فروشگاه قهرمان
         </motion.div>
+
+      {/* <motion.div
+       initial={{ opacity: 0 }}
+       animate={{ opacity: 0.2 }}
+       transition={{ duration: 1.5, delay: 0.8 }}
+      className="self-center"
+      >
+
+      <Image
+          src={"/assets/check.png"}
+          alt="bg"
+          width={250}
+          height={250}
+          // style={{ objectFit: "cover" }} // تنظیم تصویر برای پر کردن کامل صفحه
+        />
+      </motion.div> */}
+        <motion.div>
+  
+  <motion.div   
+   initial={{ y: "480%" }}
+            animate={{y: "0%" }}
+            transition={{ duration: 0.5, delay:1 }}>  <motion.div
+            initial={{ opacity: 0.7 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 0.1,
+            }}
+            className="text-center"
+          >
+            <Button
+              onClick={() => startAnimation()}
+              fullWidth={true}
+              radius="full"
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg
+              font-semibold px-2 text-xl"
+            >
+              بزن بریم
+            </Button>
+          </motion.div></motion.div>
+    </motion.div>
+      </div>
   
         {/* دکمه */}
-  <motion.div>
-  
-<motion.div    initial={{ y: "300%" }}
-          animate={{y: "0%" }}
-          transition={{ duration: 0.5, delay: 0.5 }}>  <motion.div
-          initial={{ opacity: 0.7 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            delay: 2,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 0.1,
-          }}
-          className="text-center"
-        >
-          <Button
-            onClick={() => startAnimation()}
-            fullWidth={true}
-            radius="full"
-            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg
-            font-semibold px-2 text-xl"
-          >
-            بزن بریم
-          </Button>
-        </motion.div></motion.div>
-  </motion.div>
+
   
   
   

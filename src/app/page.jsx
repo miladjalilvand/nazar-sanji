@@ -10,9 +10,9 @@ export default function Home() {
     <div className="relative h-screen">
       {/* پس‌زمینه ثابت */}
       <motion.div
-        className="opacity-75 " // تصویر در لایه‌ی زیرین قرار گیرد
+        className="  " // تصویر در لایه‌ی زیرین قرار گیرد
         initial={{ opacity: 0.0 }}
-        animate={{ opacity: 0.1 }}
+        animate={{ opacity: 0.2 }}
         transition={{ duration: 1 }}
       >
         <Image

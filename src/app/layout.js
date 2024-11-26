@@ -23,7 +23,8 @@ export default function RootLayout({ children }) {
             xl:text-amber-300 xl:text-5xl 
              2xl:text-purple-500 2xl:text-7xl 
              md:text-2xl
-              md:text-red-600 ${vaz.className} antialiased`}
+              md:text-red-600
+               ${vaz.className} antialiased`}
       >
         <ThemeProvider >
       <NextUIProvider>  {children} </NextUIProvider>
