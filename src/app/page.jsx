@@ -16,7 +16,7 @@ export default function Home() {
         transition={{ duration: 1 }}
       >
         <Image
-          src={"/assets/lki.webp"}
+          src={"/assets/66.gif"}
           alt="bg"
           fill
           style={{ objectFit: "cover" }} // تنظیم تصویر برای پر کردن کامل صفحه
