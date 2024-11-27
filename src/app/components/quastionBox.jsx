@@ -187,9 +187,10 @@ const setAnswersInput = (val, ind) => {
            justify-between p-6 overflow-auto"
         >
           <div className="flex flex-col overflow-auto">
-            <div className="flex px-3 gap-5 md:flex-row flex-col items-center justify-around">
+            <div className="pt-1  flex px-3 gap-5 md:flex-row flex-col items-center justify-around">
 <span>{currentQuestionIndex+1}/{questionsData.length}</span>
-<Progress color="default" aria-label="Loading..." value={(100/questionsData.length)*(currentQuestionIndex+1)} />
+<Progress  
+ color="default" aria-label="Loading..." value={(100/questionsData.length)*(currentQuestionIndex+1)} />
             {/* <Progress aria-label="Loading..." color="black" value={(100/questionsData.length)*currentQuestionIndex} className="max-w-md"/> */}
 
 
@@ -199,19 +200,19 @@ const setAnswersInput = (val, ind) => {
           <div className="flex flex-row w-full justify-between
              bottom-2 pt-2">
             {currentQuestionIndex > 0 ? ( // دکمه قبلی
-              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-full p-2" onClick={handlePrevious}>
+              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-lg p-3" onClick={handlePrevious}>
                 <IoArrowForwardCircleOutline color="yellow" />
               </div>
             ) : (
               <div></div>
             )}
             {currentQuestionIndex < questionsData.length - 1 ? ( // دکمه بعدی
-              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-full p-2 " onClick={handleNext}>
+              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-lg p-3 " onClick={handleNext}>
                 <IoArrowBackCircleOutline color="yellow" />
               </div>
             ) : (
-              <Button className="animate-pulse h-fit " onClick={() => startAnimation()}>
-                <div className="animate-none">ارسال</div>
+              <Button variant="shadow" className=" h-fit p-3 " onClick={() => startAnimation()}>
+                <div className="">تمام  😊</div>
                  </Button>
             )}
           </div>
@@ -241,7 +242,7 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
 
 // کامپوننت سوال نوع 3 (چند گزینه‌ای)
 const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
-  <div className="flex flex-col overflow-auto text-black">
+  <div className="flex flex-col overflow-hidden text-black">
     <div className="text-green-950 pb-6 pt-3">{quastion}</div>
     <div>
       {options.map((option, optIndex) => (
