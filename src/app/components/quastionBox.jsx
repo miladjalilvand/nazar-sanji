@@ -227,7 +227,7 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
     <textarea
     maxLength={300}
       className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none
-      text-gray-900 text-lg focus:outline-none focus:border-transparent
+      text-gray-900 text-lg focus:outline-none focus:border-transparent 2xl:text-6xl
       "
       rows={5}
       placeholder={currentAnswer[index] ? currentAnswer[index].value: "جواب شما . . ."}
@@ -248,11 +248,11 @@ const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
             checked={answers[index]?.value === option} 
             type="radio"
             name={`question-${index}`}
-            className="mr-2 m-1"
+            className="mr-2 m-1 p-3 "
             value={option}
             onChange={(e) => setAnswerInput(option, index)}
           />
-          <div className="text-black pr-1 pb-2 cursor-pointer">{option}</div>
+          <div className="text-black text-small xl:text-lg  pr-1 pb-2 cursor-pointer 2xl:text-4xl">{option}</div>
         </label>
       ))}
     </div>

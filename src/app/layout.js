@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
       <body
         className={`h-screen w-screen  dynamic-padding test overflow-auto 
            bg-black text-blue-500
-           text-large
-            xl:text-amber-300 xl:text-5xl 
+           text-small
+            xl:text-amber-300 xl:text-3xl 
              2xl:text-purple-500 2xl:text-7xl 
              md:text-2xl
               md:text-red-600
