@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button,Progress } from "@nextui-org/react";
-import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 import { Rating , ThinStar  } from '@smastrom/react-rating'
 import { Checkbox } from "@nextui-org/react";
+import { IoMdArrowForward } from "react-icons/io";
+import { IoMdArrowBack } from "react-icons/io";
+import { MdFileDownloadDone } from "react-icons/md";
 
 import '@smastrom/react-rating/style.css'
 // داده‌های سوالات
@@ -156,15 +158,15 @@ const setAnswersInput = (val, ind) => {
   return (
     finish ? ( // نمایش پیام اتمام
       <div className="h-screen flex flex-col items-center justify-center bg-txl">
-<div className="flex flex-col w-2/3 py-6 px-3 bg-txd bg-opacity-80 rounded-md">
+<div className="flex flex-col  w-2/3 py-6 px-3 bg-txd bg-opacity-80 rounded-md">
 <div        
           className="flex self-center text-2xl font-semibold 
-            text-txl   rounded-large px-3 *:py-2"
+            text-txl   rounded-large px-3 py-2"
        > مرسی که شرکت کردی</div>
 
 <div        
           className="flex self-center  text-xs font-semibold 
-          text-pr rounded-large px-3 *:py-2"
+          text-pr rounded-large px-3 pt-6 py-2"
        > در حال بازگشت . . .   </div>
 </div>
       </div>
@@ -201,18 +203,19 @@ const setAnswersInput = (val, ind) => {
              bottom-2 pt-2">
             {currentQuestionIndex > 0 ? ( // دکمه قبلی
               <div className="cursor-pointer bg-txd hover:bg-slate-600 rounded-lg p-3" onClick={handlePrevious}>
-                <IoArrowForwardCircleOutline color="white" />
+                <IoMdArrowForward color="white" />
               </div>
             ) : (
               <div></div>
             )}
             {currentQuestionIndex < questionsData.length - 1 ? ( // دکمه بعدی
               <div className="cursor-pointer bg-txd hover:bg-slate-600 rounded-lg p-3 " onClick={handleNext}>
-                <IoArrowBackCircleOutline color="white" />
+                <IoMdArrowBack color="white" />
               </div>
             ) : (
               <Button variant="flat" className=" h-full bg-txd text-txl " onClick={() => startAnimation()}>
                 {/* <div className="">تمام  😊</div> */}
+                <MdFileDownloadDone />
                 <div className="">تمام  </div>
                  </Button>
             )}
@@ -226,12 +229,12 @@ const setAnswersInput = (val, ind) => {
 // کامپوننت سوال نوع 1
 const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
   <div className="flex flex-col">
-    <div className="text-txd pb-6 pt-3">{quastion}</div>
+    <div className="text-black text-small py-2 2xl:text-4xl">{quastion}</div>
     <textarea
     maxLength={300}
       className="w-full p-2 rounded-lg border-2  resize-none
       text-txd text-lg focus:outline-none bg-white 
-      focus:border-transparent 2xl:text-6xl
+      focus:border-transparent 2xl:text-3xl
       "
       rows={5}
       placeholder={currentAnswer[index] ? currentAnswer[index].value: "جواب شما . . ."}
@@ -243,17 +246,17 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
 
 // کامپوننت سوال نوع 3 (چند گزینه‌ای)
 const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
-  <div className="flex flex-col overflow-hidden text-black">
-    <div className="text-txd pb-6 pt-3">{quastion}</div>
+  <div className="flex flex-col overflow-auto text-black">
+    <div className="text-black text-small py-2 2xl:text-4xl">{quastion}</div>
     <div>
       {options.map((option, optIndex) => (
-        <label key={optIndex} className="flex flex-row px-1 text-lg items-center">
+        <label key={optIndex} className="flex flex-row px-1 py-2 text-lg items-center">
           <Checkbox
             isSelected={answers[index]?.value === option}
             onChange={() => setAnswerInput(option, index)}
             className="mr-2"
           >
-            <span className="text-txd text-small xl:text-lg pr-1 pb-2 cursor-pointer 2xl:text-4xl">
+            <span className="text-txd  text-small xl:text-lg pr-1 pb-2 cursor-pointer 2xl:text-4xl">
               {option}
             </span>
           </Checkbox>
@@ -274,8 +277,8 @@ const Type2 = ({ quastion, answers, setAnswerInput, index }) => {
   const currentRating = answers[index]?.value || 0;
 
   return (
-    <div className="flex flex-col  text-black overflow-hidden">
-      <div className="text-txd pb-6 pt-3">{quastion}</div>
+    <div className="flex flex-col  text-black overflow-auto overflow-x-hidden">
+      <div className="text-black text-small py-2 2xl:text-4xl">{quastion}</div>
       <div className="flex gap-2">
         <Rating
         itemStyles={myStyles}

@@ -105,7 +105,7 @@ const startAnimation = () =>{
               onClick={() => startAnimation()}
               fullWidth={true}
               radius="full"
-              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-sc shadow-lg
+              className="bg-gradient-to-tr from-pink-500 to-purple-500 text-sc shadow-lg
               font-semibold px-2 text-xl  2xl:text-5xl py-2 2xl:p-9 p-3"
             >
               بزن بریم
