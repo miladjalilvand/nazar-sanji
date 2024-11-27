@@ -12,7 +12,7 @@ export default function Home() {
       <motion.div
         className="  " // تصویر در لایه‌ی زیرین قرار گیرد
         initial={{ opacity: 0.6 }}
-        animate={{ opacity: 0.1 }}
+        animate={{ opacity: 0.2 }}
         transition={{ duration: 1 }}
       >
         <Image

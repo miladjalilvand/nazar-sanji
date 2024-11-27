@@ -52,19 +52,22 @@ const startAnimation = () =>{
           shadow-md shadow-black 2xl:text-7xl ">
             فرم نظرسنجی</div>
         </motion.div>
-        <div className="p-3 2xl:text-5xl">{getToday()}</div>
-      <div className="flex flex-col pt-12 h-full justify-around md:justify-between m-6">
 
-
-      <motion.div
-          className="flex self-center text-2xl font-semibold text-gray-500
-           bg-white bg-opacity-10 rounded-large px-3 *:py-2  2xl:text-7xl "
+        <motion.div
+          className="flex text-2xl font-semibold text-gray-500
+           bg-white bg-opacity-10 rounded-large px-3 *:py-2  2xl:text-7xl mt-3 py-1 "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           فروشگاه قهرمان
         </motion.div>
+        <div className="p-3 2xl:text-5xl self-end">{getToday()}</div>
+        
+
+      <div className="flex flex-col pt-12 h-full justify-around md:justify-between m-6">
+
+<div className="flex"></div>
 
       {/* <motion.div
        initial={{ opacity: 0 }}

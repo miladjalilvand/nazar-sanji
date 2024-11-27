@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
            text-small
             xl:text-amber-300 xl:text-3xl 
              2xl:text-purple-500 2xl:text-7xl 
-             md:text-2xl
+             md:text-xl
               md:text-red-600
                ${vaz.className} antialiased`}
       >
