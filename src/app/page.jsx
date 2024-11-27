@@ -12,11 +12,11 @@ export default function Home() {
       <motion.div
         className="  " // تصویر در لایه‌ی زیرین قرار گیرد
         initial={{ opacity: 0.6 }}
-        animate={{ opacity: 0.2 }}
+        animate={{ opacity: 0.1 }}
         transition={{ duration: 1 }}
       >
         <Image
-          src={"/assets/15.jpg"}
+          src={"/assets/lki.webp"}
           alt="bg"
           fill
           style={{ objectFit: "cover" }} // تنظیم تصویر برای پر کردن کامل صفحه
