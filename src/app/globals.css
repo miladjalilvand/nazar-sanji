@@ -8,7 +8,12 @@
   --foreground: black;
   --primary: #8174A0;    /* رنگ اصلی */
   --secondary: #A888B5;  /* رنگ ثانویه */
-  --danger: #EFB6C8;   
+  --danger: #EFB6C8; 
+  
+  --pr : #7AB2D3;
+  --sc : #DFF2EB;
+  --txl : #B9E5E8;
+  --txd : #4A628A;
 }
 
 [data-theme='dark'] {

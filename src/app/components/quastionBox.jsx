@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button,Progress } from "@nextui-org/react";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 import { Rating , ThinStar  } from '@smastrom/react-rating'
+import { Checkbox } from "@nextui-org/react";
 
 import '@smastrom/react-rating/style.css'
 // داده‌های سوالات
@@ -223,11 +224,12 @@ const setAnswersInput = (val, ind) => {
 // کامپوننت سوال نوع 1
 const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
   <div className="flex flex-col">
-    <div className="text-green-950 pb-2">{quastion}</div>
+    <div className="text-green-950 pb-6 pt-3">{quastion}</div>
     <textarea
     maxLength={300}
       className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none
-      text-gray-900 text-lg focus:outline-none focus:border-transparent 2xl:text-6xl
+      text-gray-900 text-lg focus:outline-none bg-white q
+      focus:border-transparent 2xl:text-6xl
       "
       rows={5}
       placeholder={currentAnswer[index] ? currentAnswer[index].value: "جواب شما . . ."}
@@ -240,25 +242,24 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
 // کامپوننت سوال نوع 3 (چند گزینه‌ای)
 const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
   <div className="flex flex-col overflow-auto text-black">
-    <div className="pb-2 text-green-950">{quastion}</div>
+    <div className="text-green-950 pb-6 pt-3">{quastion}</div>
     <div>
       {options.map((option, optIndex) => (
-        <label key={optIndex} className="flex flex-row px-1 text-lg">
-          <input
-            checked={answers[index]?.value === option} 
-            type="radio"
-            name={`question-${index}`}
-            className="mr-2 m-1 p-3 "
-            value={option}
-            onChange={(e) => setAnswerInput(option, index)}
-          />
-          <div className="text-black text-small xl:text-lg  pr-1 pb-2 cursor-pointer 2xl:text-4xl">{option}</div>
+        <label key={optIndex} className="flex flex-row px-1 text-lg items-center">
+          <Checkbox
+            isSelected={answers[index]?.value === option}
+            onChange={() => setAnswerInput(option, index)}
+            className="mr-2"
+          >
+            <span className="text-black text-small xl:text-lg pr-1 pb-2 cursor-pointer 2xl:text-4xl">
+              {option}
+            </span>
+          </Checkbox>
         </label>
       ))}
     </div>
   </div>
 );
-
 const myStyles = {
   itemShapes: ThinStar,
   activeFillColor: '#37415c',
@@ -271,8 +272,8 @@ const Type2 = ({ quastion, answers, setAnswerInput, index }) => {
   const currentRating = answers[index]?.value || 0;
 
   return (
-    <div className="flex flex-col py-3 text-black overflow-hidden">
-      <div className="text-green-950 pb-2">{quastion}</div>
+    <div className="flex flex-col  text-black overflow-hidden">
+      <div className="text-green-950 pb-6 pt-3">{quastion}</div>
       <div className="flex gap-2">
         <Rating
         itemStyles={myStyles}
