@@ -11,8 +11,8 @@ export default function Home() {
       {/* پس‌زمینه ثابت */}
       <motion.div
         className="  " // تصویر در لایه‌ی زیرین قرار گیرد
-        initial={{ opacity: 0.6 }}
-        animate={{ opacity: 0.2 }}
+        initial={{ opacity: 0.3 }}
+        animate={{ opacity: 0.1 }}
         transition={{ duration: 1 }}
       >
         <Image

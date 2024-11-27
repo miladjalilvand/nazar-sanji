@@ -47,15 +47,15 @@ const startAnimation = () =>{
           // animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5}}
         >
-          <div className=" px-3 py-1 text-gray-600 rounded-b-full bg-slate-200 w-full text-lg
+          <div className=" px-3 py-1 text-txd rounded-b-full bg-sc w-full text-lg
           
-          shadow-md shadow-black 2xl:text-7xl ">
+          shadow-lg shadow-gray-700 2xl:text-7xl ">
             فرم نظرسنجی</div>
         </motion.div>
         {/* <div className="p-3 2xl:text-5xl self-end">{getToday()}</div> */}
         <motion.div
-          className="flex text-2xl font-semibold text-gray-500
-           bg-white bg-opacity-10 rounded-large px-3 *:py-2  2xl:text-7xl mt-3 py-1 "
+          className="flex text-2xl font-semibold text-sc
+           bg-txd bg-opacity-30 opacity-20 rounded-large px-3 *:py-2  2xl:text-7xl mt-3 py-1 "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -105,7 +105,7 @@ const startAnimation = () =>{
               onClick={() => startAnimation()}
               fullWidth={true}
               radius="full"
-              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-sc shadow-lg
               font-semibold px-2 text-xl  2xl:text-5xl py-2 2xl:p-9 p-3"
             >
               بزن بریم

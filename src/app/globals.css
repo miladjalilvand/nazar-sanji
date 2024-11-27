@@ -9,11 +9,11 @@
   --primary: #8174A0;    /* رنگ اصلی */
   --secondary: #A888B5;  /* رنگ ثانویه */
   --danger: #EFB6C8; 
-  
-  --pr : #7AB2D3;
-  --sc : #DFF2EB;
-  --txl : #B9E5E8;
-  --txd : #4A628A;
+
+  --pr : #FFCFEF;
+  --sc : #FBF8EF;
+  --txl : #C9E6F0;
+  --txd : #2A3335 ; /*default nextui*/ 
 }
 
 [data-theme='dark'] {

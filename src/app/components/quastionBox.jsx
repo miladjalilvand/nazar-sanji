@@ -155,16 +155,16 @@ const setAnswersInput = (val, ind) => {
 
   return (
     finish ? ( // نمایش پیام اتمام
-      <div className="h-screen flex flex-col items-center justify-center bg-lime-500">
-<div className="flex flex-col w-2/3 py-6 px-3 bg-white bg-opacity-80 rounded-md">
+      <div className="h-screen flex flex-col items-center justify-center bg-txl">
+<div className="flex flex-col w-2/3 py-6 px-3 bg-txd bg-opacity-80 rounded-md">
 <div        
           className="flex self-center text-2xl font-semibold 
-          text-gray-800   rounded-large px-3 *:py-2"
+            text-txl   rounded-large px-3 *:py-2"
        > مرسی که شرکت کردی</div>
 
 <div        
-          className="flex self-center  text-xl font-semibold 
-          text-gray-400 rounded-large px-3 *:py-2"
+          className="flex self-center  text-xs font-semibold 
+          text-pr rounded-large px-3 *:py-2"
        > در حال بازگشت . . .   </div>
 </div>
       </div>
@@ -183,14 +183,14 @@ const setAnswersInput = (val, ind) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="mx-3 md:mx-0 md:w-2/3 flex-col bg-yellow-500 rounded-lg shadow-lg flex 
+          className="mx-3 md:mx-0 md:w-2/3 flex-col bg-pr rounded-lg shadow-lg flex 
            justify-between p-6 overflow-auto"
         >
           <div className="flex flex-col overflow-auto">
             <div className="pt-1  flex px-3 gap-5 md:flex-row flex-col items-center justify-around">
-<span>{currentQuestionIndex+1}/{questionsData.length}</span>
+<span className="text-txd">{currentQuestionIndex+1}/{questionsData.length}</span>
 <Progress  
- color="default" aria-label="Loading..." value={(100/questionsData.length)*(currentQuestionIndex+1)} />
+ color="gradient" aria-label="Loading..." value={(100/questionsData.length)*(currentQuestionIndex+1)} />
             {/* <Progress aria-label="Loading..." color="black" value={(100/questionsData.length)*currentQuestionIndex} className="max-w-md"/> */}
 
 
@@ -200,19 +200,20 @@ const setAnswersInput = (val, ind) => {
           <div className="flex flex-row w-full justify-between
              bottom-2 pt-2">
             {currentQuestionIndex > 0 ? ( // دکمه قبلی
-              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-lg p-3" onClick={handlePrevious}>
-                <IoArrowForwardCircleOutline color="yellow" />
+              <div className="cursor-pointer bg-txd hover:bg-slate-600 rounded-lg p-3" onClick={handlePrevious}>
+                <IoArrowForwardCircleOutline color="white" />
               </div>
             ) : (
               <div></div>
             )}
             {currentQuestionIndex < questionsData.length - 1 ? ( // دکمه بعدی
-              <div className="cursor-pointer bg-slate-500 hover:bg-slate-600 rounded-lg p-3 " onClick={handleNext}>
-                <IoArrowBackCircleOutline color="yellow" />
+              <div className="cursor-pointer bg-txd hover:bg-slate-600 rounded-lg p-3 " onClick={handleNext}>
+                <IoArrowBackCircleOutline color="white" />
               </div>
             ) : (
-              <Button variant="shadow" className=" h-fit p-3 " onClick={() => startAnimation()}>
-                <div className="">تمام  😊</div>
+              <Button variant="flat" className=" h-full bg-txd text-txl " onClick={() => startAnimation()}>
+                {/* <div className="">تمام  😊</div> */}
+                <div className="">تمام  </div>
                  </Button>
             )}
           </div>
@@ -225,11 +226,11 @@ const setAnswersInput = (val, ind) => {
 // کامپوننت سوال نوع 1
 const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
   <div className="flex flex-col">
-    <div className="text-green-950 pb-6 pt-3">{quastion}</div>
+    <div className="text-txd pb-6 pt-3">{quastion}</div>
     <textarea
     maxLength={300}
-      className="w-full p-2 rounded-lg border-2 border-gray-300 resize-none
-      text-gray-900 text-lg focus:outline-none bg-white q
+      className="w-full p-2 rounded-lg border-2  resize-none
+      text-txd text-lg focus:outline-none bg-white 
       focus:border-transparent 2xl:text-6xl
       "
       rows={5}
@@ -243,7 +244,7 @@ const Type1 = ({ quastion, setAnswerInput, index , currentAnswer }) => (
 // کامپوننت سوال نوع 3 (چند گزینه‌ای)
 const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
   <div className="flex flex-col overflow-hidden text-black">
-    <div className="text-green-950 pb-6 pt-3">{quastion}</div>
+    <div className="text-txd pb-6 pt-3">{quastion}</div>
     <div>
       {options.map((option, optIndex) => (
         <label key={optIndex} className="flex flex-row px-1 text-lg items-center">
@@ -252,7 +253,7 @@ const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
             onChange={() => setAnswerInput(option, index)}
             className="mr-2"
           >
-            <span className="text-black text-small xl:text-lg pr-1 pb-2 cursor-pointer 2xl:text-4xl">
+            <span className="text-txd text-small xl:text-lg pr-1 pb-2 cursor-pointer 2xl:text-4xl">
               {option}
             </span>
           </Checkbox>
@@ -263,8 +264,8 @@ const Type3 = ({ quastion, options, setAnswerInput, index, answers }) => (
 );
 const myStyles = {
   itemShapes: ThinStar,
-  activeFillColor: '#37415c',
-  inactiveFillColor: '#fbf1a9'
+  activeFillColor: '#FFB200',
+  inactiveFillColor: '#7a7197'
 }
 // کامپوننت سوال نوع 2 (امتیازی)
 // کامپوننت سوال نوع 2 (امتیازی)
@@ -274,7 +275,7 @@ const Type2 = ({ quastion, answers, setAnswerInput, index }) => {
 
   return (
     <div className="flex flex-col  text-black overflow-hidden">
-      <div className="text-green-950 pb-6 pt-3">{quastion}</div>
+      <div className="text-txd pb-6 pt-3">{quastion}</div>
       <div className="flex gap-2">
         <Rating
         itemStyles={myStyles}

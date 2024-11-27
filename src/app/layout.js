@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="fa-IR" dir="rtl" suppressHydrationWarning>
       <body
         className={`h-screen w-screen  dynamic-padding test overflow-auto 
-           bg-black text-blue-500
+           bg-gray-600 text-blue-500
            text-small
             xl:text-amber-300 xl:text-xl 
              2xl:text-purple-500 2xl:text-7xl 
@@ -26,8 +26,19 @@ export default function RootLayout({ children }) {
               md:text-red-600
                ${vaz.className} antialiased`}
       >
-        <ThemeProvider >
-      <NextUIProvider>  {children} </NextUIProvider>
+        <ThemeProvider  >
+      <NextUIProvider 
+      theme={{
+        extend: {
+          colors: {
+            primary: "#ff007a", // رنگ اصلی
+            secondary: "#f5a623", // رنگ ثانویه
+            gradient: "linear-gradient(112deg, #ff007a -25%, #f5a623 100%)", // گرادینت
+            textPrimary: "#333333", // رنگ متن اصلی
+            textSecondary: "#888888", // رنگ متن ثانویه
+          },
+        },
+      }}>  {children} </NextUIProvider>
 
         </ThemeProvider>
       
