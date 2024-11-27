@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         className={`h-screen w-screen  dynamic-padding test overflow-auto 
            bg-black text-blue-500
            text-small
-            xl:text-amber-300 xl:text-3xl 
+            xl:text-amber-300 xl:text-xl 
              2xl:text-purple-500 2xl:text-7xl 
              md:text-xl
               md:text-red-600

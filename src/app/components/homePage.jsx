@@ -52,7 +52,7 @@ const startAnimation = () =>{
           shadow-md shadow-black 2xl:text-7xl ">
             فرم نظرسنجی</div>
         </motion.div>
-
+        {/* <div className="p-3 2xl:text-5xl self-end">{getToday()}</div> */}
         <motion.div
           className="flex text-2xl font-semibold text-gray-500
            bg-white bg-opacity-10 rounded-large px-3 *:py-2  2xl:text-7xl mt-3 py-1 "
@@ -62,7 +62,7 @@ const startAnimation = () =>{
         >
           فروشگاه قهرمان
         </motion.div>
-        <div className="p-3 2xl:text-5xl self-end">{getToday()}</div>
+   
         
 
       <div className="flex flex-col pt-12 h-full justify-around md:justify-between m-6">
